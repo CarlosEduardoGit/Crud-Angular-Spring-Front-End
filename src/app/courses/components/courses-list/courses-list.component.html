@@ -3,14 +3,14 @@
   <!-- Name Column -->
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef> Curso </mat-header-cell>
-    <mat-cell *matCellDef="let courses"> {{courses.name}} </mat-cell>
+    <mat-cell *matCellDef="let course"> {{course.name}} </mat-cell>
   </ng-container>
 
   <!-- Category Column -->
   <ng-container matColumnDef="category">
     <mat-header-cell *matHeaderCellDef class="action-column"> Categoria </mat-header-cell>
-    <mat-cell *matCellDef="let courses"> {{courses.category}}
-      <mat-icon aria-hidden="false" aria-label="Categoria do Curso">{{ courses.category | category }}</mat-icon>
+    <mat-cell *matCellDef="let course"> {{course.category}}
+      <mat-icon aria-hidden="false" aria-label="Categoria do Curso">{{ course.category | category }}</mat-icon>
     </mat-cell>
   </ng-container>
 
@@ -22,9 +22,9 @@
         </button>
       </mat-header-cell>
 
-      <mat-cell *matCellDef="let courses" class="action-column">
+      <mat-cell *matCellDef="let course" class="action-column">
         <button mat-icon-button color="primary" aria-label="Editar Curso">
-          <mat-icon>edit</mat-icon>
+          <mat-icon (click)="onEdit(course)" >edit</mat-icon>
         </button>
 
         <button mat-icon-button color="warn" aria-label="Remover Curso">
