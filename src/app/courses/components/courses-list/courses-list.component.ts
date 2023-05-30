@@ -12,6 +12,7 @@ export class CoursesListComponent {
   @Input() courses: Course[] = [];
   @Output() add = new EventEmitter(isAsync: false);
   @Output() edit = new EventEmitter(isAsync: false);
+  @Output() remove = new EventEmitter(isAsync: false);
 
   readonly displayedColumns = ['name', 'category', 'actions'];
 
@@ -24,7 +25,11 @@ export class CoursesListComponent {
   }
 
   onEdit(course: Course){
-    this.add.emit(course);
+    this.edit.emit(course);
+  }
+
+  onDelete(course: Course){
+    this.remove.emit(course);
   }
 
 }
